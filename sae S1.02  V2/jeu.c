@@ -9,22 +9,23 @@ int lettreok(char* mot, const int size) {
     return 1;
 }
 
-char** conv_dico(FILE* fileDico) {
-    assert(fileDico != NULL);
-    char** tab = malloc(dico_mot * sizeof(char*));
-    assert(tab != NULL);
-    for (int i = 0; i < dico_mot; i++) {
-        if (sizeof(tab[i]) >= 3 || sizeof(tab[i]) <= 8) {
-            if (lettreok(tab[i], sizeof(tab[i]))) {
-                tab[i] = malloc(taille_mot_max * sizeof(char));
-                assert(tab[i] != NULL);
-                size_t len = strlen(tab[i]);
-                if (len > 0 && tab[i][len - 1] == '\n')
-                    tab[i][len - 1] = '\0';
-            }
-        }
+int conv_dico(char** dico) {
+    FILE* f = fopen("ods4.txt", "r");
+    assert(f != NULL);
+    char** tab = NULL;
+    int compteur = 0;
+    char mot[taille_mot_max];
+
+    while (fscanf(f, "%15s", mot) != EOF) {
+        char** tmp = (char**)realloc(tab, sizeof(char*) * (compteur + 1));
+        assert(tmp != NULL); 
+        tab = tmp;
+        tab[compteur] = malloc(strlen(mot) + 1); 
+        assert(tab[compteur] != NULL);
+        strcpy(tab[compteur], mot);
+        compteur++; 
     }
-    return tab;
+    return compteur;
 }
 
 int dichothomie(char** dico, char* mot, int taille) {
@@ -56,7 +57,7 @@ int dichorecu(char** dico, char* mot, int min, int max) {
     }
 }
 
-int initJeu(jeu* J, char** dico) {
+int initJeu(jeu* J) {
     J->nbmotsjoues = 0;
     J->motjoues = NULL;
     char lettres[] = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
@@ -81,7 +82,6 @@ int initJeu(jeu* J, char** dico) {
     trier(&J->P2);
     printf("1 : %.12s \n", chaine(&J->P1));
     printf("2 : %.12s \n", chaine(&J->P2));
-    Pretour(J, dico);
 }
 
 char* demandeJoueurpre(jeu* J, int joueur, char** dico) {
@@ -124,7 +124,10 @@ char* demandeJoueurpre(jeu* J, int joueur, char** dico) {
     return(mot);
 }
 
-int Pretour(jeu* J, char** dico) {
+int Pretour(jeu* J) {
+    char** dico = NULL;
+    int taille = conv_dico(dico);
+    printf("%s", dico[0]);
     char* mot1 = demandeJoueurpre(J, 1, dico);
     J->nbmotsjoues++;
     char** temp = (char**)realloc(J->motjoues, sizeof(char*) * J->nbmotsjoues);

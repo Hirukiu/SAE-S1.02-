@@ -14,10 +14,9 @@ typedef struct {
 /**
  * @brief   initialise un Jeu avec tout les chevalet distribuée pour 2 joueur et demande le premmier mot de 4 de long a mettre sur le rail
  * @param J le Jeu à initialiser
- * @param dico la liste de mot valable
  * @return 1 si la partie peut continuer ou 0 si la partie doit s'arreter
 */
-int initJeu(jeu* J, char** dico);
+int initJeu(jeu* J);
 /**
  * @brief verifie que le mot ne contient pas les lettres k, w, x, y, z
  * @param  mot le mot a verifier
@@ -46,7 +45,7 @@ int dichorecu(char** dico, char* mot, int min, int max);
  * @brief  converti un fichier texte en tableau de chaine de charactére de taille max 369085 et de chaine de charactére max de 16
  * @param f  le fichier à mettre sous tableau
 */
-char** conv_dico(FILE* fileDico);
+int conv_dico(char** dico);
 
 /**
  * @brief demande au joueur un mot de 4 lettre valable dans une liste de chaine de charactére
@@ -59,12 +58,6 @@ char* demandejoueurpre(jeu* J, int joueur, char** dico);
 /**
  * @brief demande aux joueur un premier mot de 4 lettre à mettre sur le rail pour debuter le jeu , si un des 2 joueur ne peut pas composer de mot la partie s'arrete , et si le mot rentrer par le joueur n'est pas dans la liste de mot donnée on redemande au joueur un mot
  * @param j le jeu à debuter
- * @param dico le dictionaire contenant tout les mot valable
  * @return 1 si la partie se deroule comme il le faut 0 si la partie doit s'arreter
 */
-int Pretour(jeu* j, char** dico);
-/**
-* @brief  converti un fichier texte en tableau de chaine de charactÃ©re de taille max 369085 et de chaine de charactÃ©re max de 16
-* @param f  le fichier Ã  mettre sous tableau
-*/
-char** conv_dico(FILE* fileDico);
+int Pretour(jeu* j);

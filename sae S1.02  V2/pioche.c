@@ -37,7 +37,7 @@ void echanger(pioche* E, int pos, pioche* p) {
 }
 void echangemot(pioche* p1, char* mot, pioche* p2) {
 	for (int i = 0; i < strlen(mot); i++) {
-		assert(estpresent(p1, mot[i]));
+		assert(lettrepresent(p1, mot[i]));
 	}
 	for (int i = 0; i < strlen(mot); i++) {
 		echanger(p1, dmdpos(p1, mot[i]), p2);
@@ -77,6 +77,7 @@ void trier(pioche* p) {
 		}
 	}
 }
+
 void LibPioche(pioche* p) {
 	if (p->c != NULL) {
 		free(p->c);
@@ -84,6 +85,7 @@ void LibPioche(pioche* p) {
 	}
 	p->taille = 0;
 }
+
 void melanger(pioche* p) {
 	srand((unsigned int)time(NULL));
 	for (int i = p->taille - 1; i > 0; i--) {
@@ -93,9 +95,11 @@ void melanger(pioche* p) {
 		p->c[j] = temp;
 	}
 }
+
 char* chaine(pioche* p) {
 	return(p->c);
 }
+
 int lettrepresent(pioche* p, char* l) {
 	for (int i = 0; i < strlen(p->c); i++)
 		if (l == p->c[i])
