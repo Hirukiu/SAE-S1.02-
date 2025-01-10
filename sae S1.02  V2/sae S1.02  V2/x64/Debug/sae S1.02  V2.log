@@ -1,8 +1,8 @@
 ﻿  jeu.c
-C:\cours\code\sae S1.02  V2\jeu.c(78,37): warning C4267: 'fonction' : conversion de 'size_t' en 'int', perte possible de données
-C:\cours\code\sae S1.02  V2\jeu.c(79,37): warning C4267: 'fonction' : conversion de 'size_t' en 'int', perte possible de données
-C:\cours\code\sae S1.02  V2\jeu.c(95,22): warning C4013: 'toupper' non défini(e) ; extern retournant int pris par défaut
-C:\cours\code\sae S1.02  V2\jeu.c(85,1): warning C4716: 'initJeu' : doit retourner une valeur
-C:\cours\code\sae S1.02  V2\jeu.c(124,1): warning C4172: retour de l’adresse de la variable locale ou temporaire : mot
-C:\cours\code\sae S1.02  V2\jeu.c(151,1): warning C4716: 'Pretour' : doit retourner une valeur
+C:\cours\code\sae S1.02  V2\jeu.c(91,37): warning C4267: 'fonction' : conversion de 'size_t' en 'int', perte possible de données
+C:\cours\code\sae S1.02  V2\jeu.c(92,37): warning C4267: 'fonction' : conversion de 'size_t' en 'int', perte possible de données
+C:\cours\code\sae S1.02  V2\jeu.c(110,22): warning C4013: 'toupper' non défini(e) ; extern retournant int pris par défaut
+C:\cours\code\sae S1.02  V2\jeu.c(101,1): warning C4716: 'initJeu' : doit retourner une valeur
+C:\cours\code\sae S1.02  V2\jeu.c(182,1): warning C4716: 'Pretour' : doit retourner une valeur
+C:\cours\code\sae S1.02  V2\jeu.c(141,1): warning C4172: retour de l’adresse de la variable locale ou temporaire : mot
   sae S1.02  V2.vcxproj -> C:\cours\code\sae S1.02  V2\x64\Debug\sae S1.02  V2.exe

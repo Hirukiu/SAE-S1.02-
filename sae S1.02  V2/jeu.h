@@ -43,9 +43,8 @@ int dichothomie(char** dico, char* mot, int taille);
 int dichorecu(char** dico, char* mot, int min, int max);
 /**
  * @brief  converti un fichier texte en tableau de chaine de charactére de taille max 369085 et de chaine de charactére max de 16
- * @param f  le fichier à mettre sous tableau
 */
-int conv_dico(char** dico);
+char** conv_dico();
 
 /**
  * @brief demande au joueur un mot de 4 lettre valable dans une liste de chaine de charactére

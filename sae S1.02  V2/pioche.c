@@ -1,6 +1,6 @@
 #include "pioche.h"
 void init(pioche* p) {
-	p->c = NULL;
+	p->c = (char*)malloc(0);
 	p->taille = 0;
 }
 void ajouter(pioche* p, char c) {
@@ -36,10 +36,10 @@ void echanger(pioche* E, int pos, pioche* p) {
 	ajouter(p, temp);
 }
 void echangemot(pioche* p1, char* mot, pioche* p2) {
-	for (int i = 0; i < strlen(mot); i++) {
+	for (int i = 0; i < strlen(mot)-1; i++) {
 		assert(lettrepresent(p1, mot[i]));
 	}
-	for (int i = 0; i < strlen(mot); i++) {
+	for (int i = 0; i < strlen(mot)-1; i++) {
 		echanger(p1, dmdpos(p1, mot[i]), p2);
 	}
 }
@@ -48,7 +48,7 @@ char dmdchar(const pioche* p, int pos) {
 	return (p->c[pos]);
 }
 int dmdpos(const pioche* p, char lettre) {
-	for (int i = 0; i < taille(p) - 1; i++) {
+	for (int i = 0; i < p->taille ; i++) {
 		if (p->c[i] == lettre)
 			return i;
 	}
